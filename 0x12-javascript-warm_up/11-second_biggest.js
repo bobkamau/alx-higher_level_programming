@@ -1,16 +1,24 @@
-#!/usr/bin/node
-
-const { argv } = require('process');
-if (!argv[3]) {
+const args = process.argv.slice(2);
+const list = [];
+let i = 0;
+let j = 0;
+let max = 0;
+let second = 0;
+if (args.length === 0 || args.length === 1) {
   console.log(0);
-} else if (argv[2] && argv[3] && argv[2] === argv[3]) {
-  console.log(0);
-} else if (argv[2] && argv[3]) {
-  const unique = [...new Set(argv)];
-  function comparar (a, b) {
-    return (a - b);
+} else {
+  for (i = 0; i < args.length; i++) {
+    list[i] = parseInt(args[i]);
   }
-  unique.sort(comparar);
-  const number = unique.length;
-  console.log(parseInt(unique[number - 2]));
+  for (j = 0; j < list.length; j++) {
+    if (list[j] > max) {
+      max = list[j];
+    }
+  }
+  for (j = 0; j < list.length; j++) {
+    if (list[j] > second && list[j] < max) {
+      second = list[j];
+    }
+  }
+  console.log(second);
 }
