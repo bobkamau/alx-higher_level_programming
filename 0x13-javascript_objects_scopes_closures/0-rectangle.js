@@ -1,5 +1,5 @@
 #!/usr/bin/node
 
 // Class of Rectangle
-//
-// module.exports = class Rectangle {};
+
+module.exports = class Rectangle {};
